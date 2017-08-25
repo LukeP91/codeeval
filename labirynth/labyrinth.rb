@@ -13,7 +13,7 @@ class LabyrinthTest < Minitest::Test
 end
 
 class Labyrinth
-  attr_reader :schema
+  attr_reader :schema, :solutions
 
   def initialize(path_to_file)
     @schema = []
@@ -54,5 +54,13 @@ class Node
   def initalize(x:, y:)
     @x = x
     @y = y
+  end
+
+  def ==(node)
+    if @x == node.x && @y == node.y
+      true
+    else
+      false
+    end
   end
 end
