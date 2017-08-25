@@ -28,6 +28,26 @@ class Labyrinth
   end
 end
 
+class SolutionPath
+  def initialize
+    @solution_nodes = []
+  end
+
+  def current_node
+    @solution_nodes.last
+  end
+
+  def add_next_node(next_node)
+    current_node.child = next_node
+    next_node.parent = current_node
+    @solution_nodes << next_node
+  end
+
+  def solution_length
+    @solution_nodes.size
+  end
+end
+
 class Node
   attr_accessor :child, :parent
 
