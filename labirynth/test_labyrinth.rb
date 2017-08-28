@@ -26,6 +26,15 @@ class LabyrinthTest < Minitest::Test
     assert_equal labyrinth.solution, solution
   end
 
+  def test_ignores_dead_ends
+    labyrinth = Labyrinth.new('test5.txt')
+    solution = load_solution('solution5.txt')
+    assert_equal labyrinth.solution, solution
+  end
+
+  def test_deep_copy_array
+
+  end
   def load_solution(file)
     solution = []
     File.open(file).each_line do |file_line|
